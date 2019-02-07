@@ -15,6 +15,10 @@ end
 a = Histogramable_array.new
 puts "Enter the number of elements to analyze:"
 n = gets.chomp.to_i
+while n <= 0
+  puts "Please enter a valid number!"
+  n = gets.chomp.to_i
+end 
 puts "Enter the elements of the array: "
 for i in (0 ... n)
   a.push(gets.chomp.to_i)

@@ -40,6 +40,10 @@ end
 b = Array.new
 puts "Enter the number of elements to analyze:"
 n = gets.chomp.to_i
+while n <= 0
+  puts "Please provide a correct number!"
+  n = gets.chomp.to_i
+end
 puts "Enter the elements of the array: "
 for i in (0 ... n)
   b.push(gets.chomp.to_i)
