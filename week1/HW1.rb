@@ -1,9 +1,8 @@
 # 1
-puts " First exercise"
+puts "First exercise"
 
 puts "How many times?"
 repetitions = gets.to_i
-#alphabet = 'abcdefghijklmnopqrstuvwxyz'
 puts "String to permute:"
 alphabet = gets.chomp
 

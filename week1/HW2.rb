@@ -5,7 +5,7 @@ puts "\n Second exercise"
 class Histogramable_array < Array 
 	def initialize() super() 
 	end 
-	def to_histogram() histogram = {}
+  def to_histogram() histogram = {}
 		histogram.default = 0
 		self.each{|i| histogram[i]+=1}
 		histogram

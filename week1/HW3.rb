@@ -6,7 +6,7 @@ puts "\n Third exercise"
 class Histogramable_array < Array 
 	def initialize() super() 
 	end 
-	def to_histogram() histogram = {}
+  def to_histogram() histogram = {}
 		histogram.default = 0
 		self.each{|i| histogram[i]+=1}
 		histogram
@@ -23,8 +23,8 @@ def mode(a)
   hist_a = Histogramable_array.new
   a.each{|i| hist_a.push(i)}
   res = hist_a.to_histogram.max_by{| k, v | v}
-	if res[1] == 1 then puts 'There is no mode!' 
-	else 
+  if res[1] == 1 then puts 'There is no mode!' 
+  else 
 		hist_a.to_histogram.each {| elem | if elem[1] == res[1] then puts elem[0] end}
   end  
 end
