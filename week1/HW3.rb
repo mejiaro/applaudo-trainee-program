@@ -3,9 +3,10 @@
 puts "\n Third exercise"
 
 
-class Histogramable_array < Array 
+class HistogramableArray < Array 
 	def initialize() super() 
 	end 
+  #Lines 7 & 8 don't do anything.
   def to_histogram() histogram = {}
 		histogram.default = 0
 		self.each{|i| histogram[i]+=1}
@@ -13,46 +14,51 @@ class Histogramable_array < Array
   end
 end
 
-def mean(a)
+def mean(numbers_array)
   res = 0
-  a.each{|i| res += i}
-  res = res.to_f/a.length
+  numbers_array.each{|i| res += i} # look up the `sum` array method.
+  res = res.to_f/numbers_array.length
   puts res
 end
-def mode(a)
-  hist_a = Histogramable_array.new
-  a.each{|i| hist_a.push(i)}
-  res = hist_a.to_histogram.max_by{| k, v | v}
-  if res[1] == 1 then puts 'There is no mode!' 
+
+def mode(numbers_array)
+  hist_a = HistogramableArray.new
+  numbers_array.each{ |number| hist_a.push(number) }
+  result = hist_a.to_histogram.max_by{| k, v | v}
+  if result[1] == 1
+    puts 'There is no mode!' 
   else 
-		hist_a.to_histogram.each {| elem | if elem[1] == res[1] then puts elem[0] end}
+		hist_a.to_histogram.each {| elem | if elem[1] == result[1] then puts elem[0] end}
   end  
 end
 
-def median(a)
-  res = 0
-  if a.length % 2 != 0 then res = a[a.length/2]
+def median(numbers_array)
+  #res = 0
+  if numbers_array.length % 2 != 0
+    result = numbers_array[numbers_array.length/2]
   else
-    res = (a[a.length/2 - 1] + a[a.length/2]) /2.to_f
+    result = (numbers_array[numbers_array.length/2 - 1] + numbers_array[numbers_array.length/2]) /2.to_f
   end
-  puts res
+  puts result
 end
-b = Array.new
+array = Array.new
 puts "Enter the number of elements to analyze:"
-n = gets.chomp.to_i
-while n <= 0
+length = gets.chomp.to_i
+while length <= 0
   puts "Please provide a correct number!"
-  n = gets.chomp.to_i
+  length = gets.chomp.to_i
 end
 puts "Enter the elements of the array: "
-for i in (0 ... n)
-  b.push(gets.chomp.to_i)
+for i in (0 ... length)
+  array.push(gets.chomp.to_i)
 end
 
-puts b.to_s
+puts array.to_s
 print 'mean: '
-mean(b)
+mean(array)
 print "mode/s: \n"
-mode(b)
+mode(array)
 print "median: "
-median(b)
+median(array)
+
+# use more declarative variable names.
